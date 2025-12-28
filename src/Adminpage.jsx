@@ -1,10 +1,10 @@
 
 
-import React, { useState } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import FleetCard from './FleetCard';
 
-const Adminpage = () => {
+const Adminpage = lazy(()=> {
     const[reg,setReg]=useState('');
     const[name,setName]=useState('');
     const[avail,setAvail]=useState(false);
@@ -40,11 +40,12 @@ const Adminpage = () => {
             <input type='checkbox'  onClick={(e)=>setAvail(true)}></input>
           <br/>  <button style={{backgroundColor:"green"}}onClick={addFleet}>Add Fleet</button>
         </form>
-        
-        <FleetCard key={reg} name={name} avail={avail} cat={cat}/>
+        <Suspense fallback="loading......"> 
+          <FleetCard key={reg} name={name} avail={avail} cat={cat}/></Suspense>
+       
 
     </div>
   )
-}
+})
 
-export default Adminpage
+export default React.memo (Adminpage);
