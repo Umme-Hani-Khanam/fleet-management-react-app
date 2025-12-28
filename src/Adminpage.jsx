@@ -1,6 +1,6 @@
 
 
-import React, { lazy, Suspense, useState } from 'react'
+import React, { lazy, Suspense, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import FleetCard from './FleetCard';
 
@@ -11,7 +11,7 @@ const Adminpage = lazy(()=> {
     const[cat,setCat]=useState(null);
     const[fleet,setFleet]=useState("");
     const navigate=useNavigate();
-    function addFleet()
+    const  addFleet=useMemo(()=>
     {
         if(!reg || !name || !cat )
         {
@@ -20,7 +20,7 @@ const Adminpage = lazy(()=> {
         }
         
         
-    }
+    })
   return (
     <div>
         <form>
