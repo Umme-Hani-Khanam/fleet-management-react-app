@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import FleetCard from './FleetCard';
 
 const Adminpage = () => {
     const[reg,setReg]=useState('');
@@ -17,14 +18,15 @@ const Adminpage = () => {
             return;
         }
         else{
-            
+            navigate('/fleetCard') 
+                    
         }
     }
   return (
     <div>
         <form>
-            <input type='text' placeholder='Enter vehincle RegNo' onChange={(e)=>setReg(e.target.value)}/>
-            <select id='category' onChange={(e)=>setCat(e.target.value)}>
+            <input type='text' placeholder='Enter vehicle RegNo' onChange={(e)=>setReg(e.target.value)}/>
+       <br></br>  <label>Category   <select id='category' onChange={(e)=>setCat(e.target.value)}>
                 <option value='No'>Select</option>
                 <option value='Auto'>Auto</option>
                 <option value='truck'>Truck</option>
@@ -32,10 +34,15 @@ const Adminpage = () => {
                 <option value='Car'>Car</option>
 
             </select>
+            </label>
+            <br/>
             <input type='text' placeholder='Driver Name' onChange={(e)=>setName(e.target.value)}/>
-            <input type='checkbox' placeholder='Available' onClick={(e)=>setAvail(e.target.value)}/>
-            <button onClick={addFleet}>Add Fleet</button>
+            <br/><label>Available</label>
+            <input type='checkbox'  onClick={(e)=>setAvail(e.target.value)}></input>
+          <br/>  <button style={{backgroundColor:"green"}}onClick={addFleet}>Add Fleet</button>
         </form>
+        <FleetCard reg='reg' name="name" avail='avail' cat='cat'/>
+
     </div>
   )
 }

@@ -3,6 +3,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './Login'
+import Adminpage from './Adminpage'
+import ProtectedRoute from "./ProtectedRoute"
 
 const App = () => {
   return (
@@ -11,7 +13,12 @@ const App = () => {
         <Routes>
           
           <Route path='/login' element={<Login/>}/>
-
+          <Route path='/adminpage' element=
+          {
+            <ProtectedRoute>
+              <Adminpage/>
+            </ProtectedRoute>
+          }/>
       
         </Routes>
       </BrowserRouter>
