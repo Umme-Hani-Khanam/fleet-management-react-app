@@ -1,7 +1,8 @@
 import React from 'react'
-
+import { useState , useRef } from 'react';
 const FleetCard = ({reg,name,avail,cat}) => {
-  
+const[veh,setVeh]=useState('');
+const vehs=useRef()  
  function updateDriver()
  {
   const newName= prompt('Enter new Driver name');
@@ -26,12 +27,12 @@ const FleetCard = ({reg,name,avail,cat}) => {
  }
  function delVehicle()
  {
-  
+  vehs.current-=1;
 
  }
   return (
-    <div className='container'>
-      <div className="card">
+    <div className='container' ref={vehs}>
+      <div className="card" ref={vehs}>
         <h4>Vehicle RegNo:{reg}</h4>
         <p>Driver Name:{name}</p>
         <p>Status : {avail}</p>

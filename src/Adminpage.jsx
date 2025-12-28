@@ -18,9 +18,7 @@ const Adminpage = () => {
             alert("Fill all the input fields");
             return;
         }
-        else{
-            setFleet(fleet+1);
-        }
+        
         
     }
   return (
@@ -43,7 +41,7 @@ const Adminpage = () => {
           <br/>  <button style={{backgroundColor:"green"}}onClick={addFleet}>Add Fleet</button>
         </form>
         
-        <FleetCard key='reg' name="name" avail='avail' cat='cat'/>
+        <FleetCard key={reg} name={name} avail={avail} cat={cat}/>
 
     </div>
   )
