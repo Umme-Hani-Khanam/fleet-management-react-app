@@ -9,6 +9,7 @@ const Adminpage = () => {
     const[name,setName]=useState('');
     const[avail,setAvail]=useState(false);
     const[cat,setCat]=useState(null);
+    const[fleet,setFleet]=useState("");
     const navigate=useNavigate();
     function addFleet()
     {
@@ -16,6 +17,9 @@ const Adminpage = () => {
         {
             alert("Fill all the input fields");
             return;
+        }
+        else{
+            setFleet(fleet+1);
         }
         
     }
@@ -35,7 +39,7 @@ const Adminpage = () => {
             <br/>
             <input type='text' placeholder='Driver Name' onChange={(e)=>setName(e.target.value)}/>
             <br/><label>Available</label>
-            <input type='checkbox'  onClick={(e)=>setAvail(e.target.value)}></input>
+            <input type='checkbox'  onClick={(e)=>setAvail(true)}></input>
           <br/>  <button style={{backgroundColor:"green"}}onClick={addFleet}>Add Fleet</button>
         </form>
         

@@ -4,18 +4,29 @@ const FleetCard = ({reg,name,avail,cat}) => {
   
  function updateDriver()
  {
-  prompt('Enter new Driver name');
-  if(name.trim()==='')
+  const newName= prompt('Enter new Driver name');
+ 
+  if(newName.trim()==='')
   {
     alert('cannot update')
+  }
+  else{
+    
   }
  }
  function changeStatus()
  {
-
+    if(avail==true)
+    {
+      avail=false
+    }
+    else{
+      avail=true;
+    }
  }
  function delVehicle()
  {
+  
 
  }
   return (
