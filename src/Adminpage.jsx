@@ -17,10 +17,7 @@ const Adminpage = () => {
             alert("Fill all the input fields");
             return;
         }
-        else{
-            navigate('/fleetCard') 
-                    
-        }
+        
     }
   return (
     <div>
@@ -41,7 +38,8 @@ const Adminpage = () => {
             <input type='checkbox'  onClick={(e)=>setAvail(e.target.value)}></input>
           <br/>  <button style={{backgroundColor:"green"}}onClick={addFleet}>Add Fleet</button>
         </form>
-        <FleetCard reg='reg' name="name" avail='avail' cat='cat'/>
+        
+        <FleetCard key='reg' name="name" avail='avail' cat='cat'/>
 
     </div>
   )

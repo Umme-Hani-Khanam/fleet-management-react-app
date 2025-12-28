@@ -1,14 +1,36 @@
 import React from 'react'
 
 const FleetCard = ({reg,name,avail,cat}) => {
+  
+ function updateDriver()
+ {
+  prompt('Enter new Driver name');
+  if(name.trim()==='')
+  {
+    alert('cannot update')
+  }
+ }
+ function changeStatus()
+ {
 
+ }
+ function delVehicle()
+ {
+
+ }
   return (
-    <div class='container'>
-      <div class="card">
+    <div className='container'>
+      <div className="card">
         <h4>Vehicle RegNo:{reg}</h4>
         <p>Driver Name:{name}</p>
         <p>Status : {avail}</p>
         <p>Category : {cat}</p>
+      </div>
+      <div className='buttonContainer'>
+        <button onClick={updateDriver}>Update Driver</button>
+        <button onClick={changeStatus}>Change Availabilty</button>
+      <button onClick={delVehicle}>Delete Vehicle</button>
+      
       </div>
       
     </div>
